@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval()</title>
+    <style>
+        p{margin: 100px; text-align: center; font-size: 50px;}
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var t=setInterval(function(){
+                var now=new Date();
+                //console.log(now);
+                var h=now.getHours();
+                var m=now.getMinutes();
+                var s=now.getSeconds();
+                if(h<10){
+                    $("span").eq(0).text("0"+h);
+                }
+                else{
+                    $("span").eq(0).text(h);
+                }
+                if(m<10){
+                    $("span").eq(1).text("0"+m);
+                }
+                else{
+                    $("span").eq(1).text(m);
+                }
+                if(s<10){
+                    $("span").eq(2).text("0"+s);
+                }
+                else{
+                    $("span").eq(2).text(s);
+                }
+                /*
+                
+               */
+            },1000);
+            $("span").eq(2).click(function(){
+                clearInterval(t);
+            });
+
+        });
+    </script>
+</head>
+<!-- 
+    .click(function(){})
+setInterval(function(){})
+일정시간마다 자동으로 특정 구문이 실행되도록 설정할수 있다.
+setInterval(function(){
+    //실행할구문
+},반복시간지정);
+var t=setInterval(function(){
+    //실행할구문
+},반복시간지정);
+
+clearInterval(변수명): setInterval구문을 중지할때 사용.
+
+new Date(): 날짜와 시간
+getFullYear()년도
+getMonth()+1;월
+getDate()일
+getDay()요일
+getHours()시
+getMinutes()분;
+getSeconds();초
+ -->
+<body>
+    <p>
+        <span>00</span> : <span>00</span> : <span>00</span>
+    </p>
+</body>
+</html>

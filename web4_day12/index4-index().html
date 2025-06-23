@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index()</title>
+    <style>
+        li{
+            font-size: 20px; margin-bottom: 20px; cursor: pointer;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("li").click(function(){
+                var n=$(this).index();
+                console.log(n);
+            });
+        });
+    </script>
+</head>
+<!-- 
+    .index(): 선택한 요소의 순서값을 찾아주는 구문이다.
+ -->
+<body>
+     <ul>
+         <li>list1</li>
+         <li>list2</li>
+         <li>list3</li>
+         <li>list4</li>
+         <li>list5</li>
+         <li>list6</li>
+         <li>list7</li>
+         <li>list8</li>
+         <li>list9</li>
+         <li>list10</li>
+     </ul>
+</body>
+</html>
