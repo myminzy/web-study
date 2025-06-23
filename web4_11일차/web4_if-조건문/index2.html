@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if-조건문</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var kor=70;
+            var eng=85;
+            var avg=0;
+            var tot=0;
+            tot=kor+eng;
+            avg=tot/2;
+           // document.write(avg);
+           if(avg>=90){
+               document.write("A등급");
+           }
+           else if(avg>=80){
+               document.write("B등급");
+           }
+           else if(avg>=70){
+               document.write("C등급");
+           }
+           else{
+               document.write("F등급");
+           }
+        });
+    </script>
+</head>
+<!-- 
+  연산자
+  1. 산술연산자(+,-,*,/,%)  
+  var a=a+b;
+  2. 대입연산자(+=,-=,*=,/=,%=)
+  var b+=c;
+  3. 증감연산자(++,--)
+  a=a++/a=++a/a=a--/a=--a;
+  a++;++a;
+  4. 관계연산자
+  이상,이하,초과,미만, 같다, 같지않다
+  >=, <=, >, <, ==/===(타입까지같다.), !=(같지않다)
+  5. 논리연산자
+  && 그리고, 이면서, 각각, 모두, and
+  || 이거나, 또는, 하나라도, or
+  !  not(반대값)
+  ^ 여러조건들이 다 같이 참값이거나 거짓값이면 참값, 하나라도 다르면 거짓값
+  6. 조건문
+  -단일조건
+  if(조건){실행문}
+  if(조건){
+      //참값 실행문
+  }
+  else{
+      //거짓값 실행문
+  }
+  -다중조건
+  if(조건1){
+      //조건1에 대한 실행문
+  }
+  else if(조건2){
+      //조건2에 대한 실행문
+  }
+  else if(조건3){
+      //조건3에 대한 실행문
+  }
+  .
+  .
+  .
+  .
+  else{
+      //조건에 해당되지 않는 값에 대한 실행문
+  }
+ -->
+<body>
+    
+</body>
+</html>
