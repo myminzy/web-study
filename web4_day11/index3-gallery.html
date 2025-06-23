@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gallery</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul{list-style: none;}
+        a{text-decoration: none; color: #555;}
+        body{
+            margin: 20px; padding: 20px; background-color: #eee;
+        }
+        h1{
+            font-size: 24px; margin-bottom: 30px;
+        }
+        .wrap{
+            position: relative;
+            width: 466px; height: 466px; overflow: hidden;
+        }
+        .wrap .picture ul{
+            position: absolute; 
+            width: 2796px; height: 466px; left: 0; top: 0;
+           /* border: 1px solid #f00;*/
+        }
+        .wrap .picture li{
+            float: left;width: 466px; height: 466px; overflow: hidden;
+        }
+        .arrow a{
+            display: block;
+            position: absolute;
+            width: 120px; height: 121px; top: 50%; margin-top: -60px;
+        }
+        .arrow a.left{left: 20px;}
+        .arrow a.right{right: 20px;}
+        .controls{
+            position: absolute;
+            width: 300px;
+            height: 20px; left: 50%; margin-left: -150px; /*border: 1px solid #f00;*/
+            text-align: center; bottom: 10px;
+        }
+        .controls li{
+            display: inline-block;
+            margin-left: 20px;
+        }
+        .controls li:first-child{
+            margin-left: 0;
+        }
+        .controls li a{
+            display: block;
+            width: 20px; height: 20px;
+            background: #ccc;border-radius: 50%;
+            transition: all 0.3s; text-indent: -9999px;
+        }
+        .controls li.on a{
+            background-color: #09f;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            var n=0;//번호변수
+            var dis=0;//갤러리 위치변수
+            $(".controls li").click(function(e){
+                e.preventDefault();
+                n=$(this).index();//클릭하는 대상의 순서값을 알수 있다.
+               // console.log(n);
+              /* dis=n*(-1)*466;
+              // console.log(dis);
+              $(".picture ul").css({"left":dis});
+              $(".controls li").removeClass("on");
+              $(this).addClass("on");this방식*/
+              /*$(".controls li").eq(n).addClass("on");//eq방식*/
+                pMove();
+            });
+            /*0,1,2,3,4,5*/
+            $(".right").click(function(e){
+                e.preventDefault();
+                if(n<5){
+                    n=n+1;
+                }
+                else{
+                    n=0;
+                }
+               /* dis=n*(-1)*466;
+                $(".picture ul").css({"left": dis});
+                $(".controls li").removeClass("on");
+                $(".controls li").eq(n).addClass("on");*/
+                pMove();
+            });
+            $(".left").click(function(e){
+                e.preventDefault();
+                if(n>0){
+                    n=n-1;
+                }
+                else{
+                    n=5;
+                }
+               /* dis=n*(-1)*466;
+                $(".picture ul").css({"left": dis});
+                $(".controls li").removeClass("on");
+                $(".controls li").eq(n).addClass("on");*/
+                pMove();
+            });
+            function pMove(){// 선언함수
+                dis=n*(-1)*466;
+                $(".picture ul").css({"left": dis});
+                $(".controls li").removeClass("on");
+                $(".controls li").eq(n).addClass("on");
+            }
+        });
+    </script>
+</head>
+<!-- 
+    선택하는 요소의 하위값에 a값이 있으면 
+    e.preventDefault(); 를 설정을 해야 한다.
+    index(): 순서값을 찾아주는 구문
+ -->
+<body>
+    <h1>gallery</h1>
+    <div class="wrap">
+        <div class="picture">
+            <ul>
+                <li><img src="images/work1.jpg" alt="1"></li>
+                <li><img src="images/work2.jpg" alt="2"></li>
+                <li><img src="images/work3.jpg" alt="3"></li>
+                <li><img src="images/work4.jpg" alt="4"></li>
+                <li><img src="images/work5.jpg" alt="5"></li>
+                <li><img src="images/work6.jpg" alt="6"></li>
+            </ul>
+        </div>
+        <div class="arrow">
+            <a href="#" class="left"><img src="images/left_btn.png" alt="left"></a>
+            <a href="#" class="right"><img src="images/right_btn.png" alt="right"></a>
+        </div>
+        <ul class="controls">
+            <li class="on"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+        </ul>
+    </div>
+</body>
+</html>
