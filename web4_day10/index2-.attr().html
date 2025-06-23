@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.attr()</title>
+    <style>
+        .cont{
+            width: 400px; border: 2px solid #f00;
+            margin: 10px; height: auto;
+        }
+        .cont img{
+            width: 100%;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $(".btn1").click(function(){
+                $(".cont img").attr({"src":"image/sub3_01.jpg","alt":"강아지"});
+            });
+            $(".btn2").click(function(){
+                $(".cont img").attr({"src":"image/sub3_02.jpg","alt":"고양이"});
+            });
+        });
+    </script>
+</head>
+<!-- 
+    .attr(): 요소의 속성값을 가져오거나 속성을 추가할때 사용
+ -->
+<body>
+    <button class="btn1">이미지1</button>
+    <button class="btn2">이미지2</button>
+    <p class="cont">
+        <img src="image/sub3_01.jpg" alt="강아지">
+    </p>
+</body>
+</html>
