@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 페이지</title>
+    <style>
+        *{
+            margin: 0; padding: 0;
+        }
+        ul{list-style: none;}
+        a{
+            text-decoration: none;
+        }
+        body{
+            margin: 0; padding: 0; overflow: hidden; font-size: 1em; background: #f1f1f1;
+        }
+        .header .nav{
+            position: fixed; width: 100%; height: 100px; background: rgba(0,0,0,0.2); top: -100px;transition: top 0.5s; z-index: 1;
+        }
+        .header .nav.on{
+            top: 0;
+        }
+        .header .nav ul{
+            margin: 50px 0 0 250px; padding: 0; min-width: 600px;
+        }
+        .header .nav ul li{
+            display: inline-block;
+            padding: 5px 20px;
+        }
+        .header .nav ul li a{
+            color: #fff; font-weight: 400;
+        }
+        .header .nav ul li a:hover{
+            color: #f00; text-decoration: underline;
+        }
+        .section{
+            position: absolute; top: 0;
+        }
+        .section .nav{
+            position: static; width: 100%; height: 100px; 
+        }
+        .section .nav ul{
+            margin: 50px 0 0 250px;
+            padding: 0; min-width: 600px;
+        }
+        .section .nav ul li{
+            display: inline-block;
+            padding: 5px 20px;
+        }
+        .section .nav ul li a{
+            color: #333;
+        }
+        .section .nav ul li a:hover{
+            text-decoration: underline;
+        }
+        .section .page .title{
+            display: inline-block; padding: 60px 0 0 50px; font-size: 2.5em; font-weight: 300; color: #8ac007;
+        }
+        .section .page.index .title{
+            padding: 30px 0 0 50px;
+        }
+        .aside{
+            position: fixed; right: 0; top: 150px;
+        }
+        .aside ul{
+            margin: 0; padding: 0;
+        }
+        .aside ul li a{
+            display: block; margin: 20px; 
+            width: 15px; height: 15px; overflow: hidden; background: #ccc; border-radius: 50%; text-indent: -9999px;
+        }
+        .aside ul li.on a{
+            background: #8ac007;
+        }
+
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script>
+        $(function(){
+            var t; //상단위치변수
+            var w;//가로크기값
+            var h;//높이값
+            var n=0;
+            //resize 이벤트
+            $(window).resize(function(){
+                w=$(window).width();
+                h=$(window).height();
+                t=(-1)*n*h;
+               // console.log(t);
+               $(".section .page").css({width: w,height:h});//페이지크기지정
+               $(".section").css({top: t});//상단위치 재지정
+               $(".aside .item").removeClass("on");//모든 item
+               $(".aside .item").eq(n).addClass("on");//n번째 item만
+            });
+            $(window).trigger("resize");//강제로 resize이벤트 실행
+            //click 이벤트
+            $(".nav .menu a, .aside .item a").click(function(e){
+                e.preventDefault();
+                n=$(this).parent("li").index();
+                t=(-1)*n*h;
+                $(".aside .item").removeClass("on");
+                $(".aside .item").eq(n).addClass("on");
+                $(".section").animate({top: t},500);
+                if(n!=0){
+                    $(".header .nav").addClass("on");
+                }
+                else{
+                    $(".header .nav").removeClass("on");
+                }
+            });
+            //keyboard 이벤트
+            $(window).keydown(function(e){
+                //console.log(e.keyCode);
+                //.section에 .animate가 있는지 요소를 확인작업, 있으면 return false
+                //.is()라는 메서드를 이용하여 .animated라는 속성이 있는지 판별을 한다. 제이쿼리에서는 .animate속성을 animated라고 사용한다.
+                if($(".section").is(":animated")){
+                    return false;
+                }
+                if(e.keyCode==34){
+                    if(n<4){
+                        n++;
+                    }
+                }
+                else if(e.keyCode==33){
+                    if(n>0){
+                        n--;
+                    }
+                }
+                t=(-1)*n*h;
+                $(".section").animate({top: t},500,function(){
+                    if(n!=0){
+                        $(".header .nav").addClass("on");
+                    }
+                    else{
+                        $(".header .nav").removeClass("on");
+                    }
+                    $(".aside .item").removeClass("on");
+                    $(".aside .item").eq(n).addClass("on");
+                });
+            });
+            //mousewheel이벤트
+            $(".wrap").mousewheel(function(e,delta){
+                if($(".section").is(":animated")){
+                    return false;
+                }
+                if(delta>0 && n>0){//up
+                    n--;
+                }
+                else if(delta<0 && n<4){//down
+                    n++;
+                }
+                t=(-1)*n*h;
+                $(".section").animate({top: t},500,function(){
+                    if(n!=0){
+                        $(".header .nav").addClass("on");
+                    }
+                    else{
+                        $(".header .nav").removeClass("on");
+                    }
+                    $(".aside .item").removeClass("on");
+                    $(".aside .item").eq(n).addClass("on");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="nav">
+                <ul>
+                    <li class="menu"><a href="#">html</a></li>
+                    <li class="menu"><a href="#">css</a></li>
+                    <li class="menu"><a href="#">css3</a></li>
+                    <li class="menu"><a href="#">jquery</a></li>
+                    <li class="menu"><a href="#">javascript</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <div class="page index">
+                <div class="nav">
+                    <ul>
+                        <li class="menu"><a href="#">HTML</a></li>
+                        <li class="menu"><a href="#">CSS</a></li>
+                        <li class="menu"><a href="#">CSS3</a></li>
+                        <li class="menu"><a href="#">JQUERY</a></li>
+                        <li class="menu"><a href="#">JAVASCRIPT</a></li>
+                    </ul>
+                    <span class="title">HTML</span>
+                </div>
+            </div>
+            <div class="page loading">
+                <span class="title">CSS</span>
+            </div>
+            <div class="page loading">
+                <span class="title">CSS3</span>
+            </div>
+            <div class="page loading">
+                <span class="title">JQUERY</span>
+            </div>
+            <div class="page loading">
+                <span class="title">JAVASCRIPT</span>
+            </div>
+        </div>
+        <div class="aside">
+            <ul>
+                <li class="item"><a href="#">1</a></li>
+                <li class="item"><a href="#">2</a></li>
+                <li class="item"><a href="#">3</a></li>
+                <li class="item"><a href="#">4</a></li>
+                <li class="item"><a href="#">5</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
