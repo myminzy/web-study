@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+        #ex li{
+            margin-top: 20px;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $(window).scroll(function(){
+               // console.log("scoll event");
+            });
+            $(window).resize(function(){
+                console.log("resize");
+            });
+            $(window).keydown(function(e){
+               // console.log("keydown")
+               console.log(e.keyCode);
+            });
+            $(window).keyup(function(){
+               // console.log("keyup");
+            });
+        });
+    </script>
+</head>
+<!-- 
+    event
+    객체선정+이벤트명+명령어
+    10. .scroll(); 스크롤이 되면 
+    $("선택자").scroll(function(){});
+    document=>현재문서 
+    $(document)
+    window=>현재 보이는 창
+    $(window)
+    11. .resize(); 리사이즈되면
+    $("선택자").resize(function(){});
+    12. .keydown(); 키보드를 눌렀을때
+    $("선택자").keydown(function(){});
+    $("선택자").keydown(function(e){
+        console.log(e.keyCode);
+    });
+    13. .keyup();키보드를 띄었을때
+    $("선택자").keyup(function(){});
+ -->
+<body>
+    <ul id="ex">
+        <li class="html">html</li>
+        <li class="css">css</li>
+        <li class="jquery">jquery</li>
+        <li class="javascript">javascript</li>
+        <li class="css3">css3</li>
+    </ul>
+</body>
+</html>
