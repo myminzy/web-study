@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        .box{
+            width: 1000px; height: 400px; margin: 0 auto;
+        }
+        .box div{
+            width: 194px; height: 233px; border: 1px solid #000; margin: 20px;
+            float: left; overflow: hidden;
+        }
+        .box .box1 a{
+            width: 194px; height: 233px; display: block; position: relative; background: url(image/sub3_01.jpg) no-repeat;
+        }
+        .box .box2 a{
+            width: 194px; height: 233px; display: block; position: relative; background: url(image/sub3_02.jpg) no-repeat;
+        }
+        .box .box3 a{
+            width: 194px; height: 233px; display: block; position: relative; background: url(image/sub3_03.jpg) no-repeat;
+        }
+        .box .box4 a{
+            width: 194px; height: 233px; display: block; position: relative; background: url(image/sub3_04.jpg) no-repeat;
+        }
+        .box .box1 a img,
+        .box .box2 a img,
+        .box .box3 a img,
+        .box .box4 a img{
+            position: absolute; top: 200px; left: 0;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $(".box .hover").hover(function(){
+                $(this).find("img").stop().animate({marginTop: -97},300);
+            },function(){
+                $(this).find("img").stop().animate({marginTop: 0},300);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box_in">
+        <div class="box">
+            <div class="box1 hover"><a href="#"><img src="image/sub3over_01.png" alt="1"></a></div>
+            <div class="box2 hover"><a href="#"><img src="image/sub3over_01.png" alt="2"></a></div>
+            <div class="box3 hover"><a href="#"><img src="image/sub3over_02.png" alt="3"></a></div>
+            <div class="box4 hover"><a href="#"><img src="image/sub3over_03.png" alt="4"></a></div>
+        </div>
+    </div>
+</body>
+</html>

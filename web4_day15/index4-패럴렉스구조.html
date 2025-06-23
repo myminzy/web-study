@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>패럴렉스구조</title>
+    <style>
+        *{
+            margin: 0; padding: 0;
+        }
+        body{
+            font-size: 1em;
+        }
+        /*#header*/
+        #header{
+            height: 1080px;
+            overflow: hidden;
+            background: rgba(0,0,255,0.2);
+        }
+        #header>div{
+            float: left;
+            width: 300px; height: 300px; border: 1px solid #f00; margin: 50px 20px; padding: 10px;  box-sizing: border-box; opacity: 0; transform: translateY(100px); transition: all 0.4s;
+        }
+        #header.active>div{
+            transform:translateY(0);
+            opacity: 1;
+        }
+        #header .type1{
+            transition-delay: 0;
+        }
+        #header .type2{
+            transition-delay: 0.5s;
+        }
+        #header .type3{
+            transition-delay: 1s;
+        }
+        /*#page1  */
+        #page1{
+            height: 1080px;
+            overflow: hidden;
+            background: rgba(0,255,255,0.2);
+        }
+        #page1>div{
+            float: left;
+            width: 300px; height: 300px; border: 1px solid #f00; margin: 50px 20px; padding: 10px;  box-sizing: border-box; opacity: 0; transform: translateY(100px); transition: all 0.4s;
+        }
+        #page1.active>div{
+            transform:translateY(0);
+            opacity: 1;
+        }
+        #page1 .type1{
+            transition-delay: 0;
+        }
+        #page1 .type2{
+            transition-delay: 0.5s;
+        }
+        #page1 .type3{
+            transition-delay: 1s;
+        }
+        /* #page2 */
+        #page2{
+            height: 1080px;
+            overflow: hidden;
+            background: rgba(255,0,255,0.2);
+        }
+        #page2>div{
+            float: left;
+            width: 300px; height: 300px; border: 1px solid #f00; margin: 50px 20px; padding: 10px;  box-sizing: border-box; opacity: 0; transform: translateY(100px); transition: all 0.4s;
+        }
+        #page2.active>div{
+            transform:translateY(0);
+            opacity: 1;
+        }
+        #page2 .type1{
+            transition-delay: 0;
+        }
+        #page2 .type2{
+            transition-delay: 0.5s;
+        }
+        #page2 .type3{
+            transition-delay: 1s;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#header").addClass("active");
+            var t=0;//상단값을 인식하는 변수
+            $(window).scroll(function(){
+               t=$(window).scrollTop();
+               if(t<1080){
+                   $("#header").addClass("active");
+               }
+               else if(t<2160){
+                   $("#page1").addClass("active");
+               }
+               else if(t<3240){
+                   $("#page2").addClass("active");
+               }
+            });
+        });
+    </script>
+</head>
+<!-- 
+패럴렉스: 스크롤 또는 특정 모션에 따라 애니메이션처럼 변화하는 사이트를 말한다.
+if(조건1){
+    참값실행문
+}
+else if(조건2){
+    조건2 실행문
+}
+.
+.
+.
+else{
+    기타 실행문
+}
+.addClass(): 클래스를 추가
+.removeClass(): 클래스를 제거
+.hasClass(): 클래스 유무(있으면 true, 없으면 false)
+.scroll(function(){});
+.scrollTop()
+ -->
+<body>
+    <div class="wrap">
+        <header id="header">
+            <div class="type1">type1</div>
+            <div class="type2">type2</div>
+            <div class="type3">type3</div>
+        </header>
+        <section id="page1">
+            <div class="type1">type1</div>
+            <div class="type2">type2</div>
+            <div class="type3">type3</div>
+        </section>
+        <section id="page2">
+            <div class="type1">type1</div>
+            <div class="type2">type2</div>
+            <div class="type3">type3</div>
+        </section>
+    </div>
+</body>
+</html>
