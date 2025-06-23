@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형메뉴</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        ul{
+            list-style: none;
+        }
+        a{text-decoration: none; color: #333;}
+        button{
+            background: transparent;
+            border: none; cursor: pointer;
+        }
+        .pc{display: none;}
+        header{
+            background-color: #333; height: 80px;
+        }
+        .logo{
+            font-size: 20px; color: #fff; margin-top: 25px; margin-left: 30px; float: left;
+        }
+        .btn{
+            position: absolute; width: 40px; height: 31px; right: 30px; top: 25px;
+        }
+        .btn span{
+            display: block; height: 5px; background-color: #fff; text-indent: -9999px; overflow: hidden; border-radius: 5px;
+        }
+        .btn span:nth-child(2){
+            margin: 8px 0;
+        }
+        #navWrap{
+            display: none;
+            position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8);
+        }
+        #navWrap.nav_on{
+            display: block;
+        }
+        #navWrap h2{
+            position: absolute; left:-9999px;
+        }
+        .nav_in{
+            position: absolute; width: 80%; height: 100%; background-color: #fff; padding-top: 50px; right: 0; top: 0;
+        }
+        .close{
+            width: 30px; height: 30px; position: absolute; right: 20px;top: 25px;
+        }
+        .close span{
+            display: block; position: absolute; left: 0; top: 0; width: 100%; height: 3px; background-color: #333; transform: rotate(45deg); transform-origin: center; text-indent: -9999px; overflow: hidden;
+        }
+        .close span:nth-child(2){
+            transform: rotate(-45deg);
+        }
+        .gnb{
+            border-top: 1px solid #cfcfcf;
+        }
+        .gnb>li>a{
+            display: block; height: 60px; line-height: 59px; border-bottom: 1px solid #cfcfcf; padding-left: 30px; font-size: 20px;
+        }
+        .gnb .sub{
+            display: none;
+            border-bottom: 1px solid #cfcfcf;
+            background-color: #f8f8f8; padding: 20px 0;
+        }
+        .gnb .sub a{
+            line-height: 40px; padding-left: 20px;
+        }
+        #visual{
+            height: 500px; background: #ff7;
+        }
+        @media screen and (min-width: 768px){
+            .pc{display: block;}
+            .mobile{display: none;}
+            .logo{
+                font-size: 32px; margin-top: 20px;
+            }
+            #navWrap{
+                display: block; float: right; position: static;width: auto; height: auto; background-color: transparent;
+            }
+            .nav_in{
+                position: static; width: auto; height: auto; background-color: transparent; padding-top: 0;
+            }
+            .gnb{
+                border-top: none; margin-top: 10px; margin-right: 30px;
+            }
+            .gnb>li{
+                float: left; position: relative; margin-left: 40px;
+            }
+            .gnb>li>a{
+                display: block; line-height: 60px; color: #fff; padding-left: 0; border-bottom: none;
+            }
+            .gnb .sub{
+                display: none;
+                position: absolute; left: 0; top: 80px; border-bottom: none;padding: 0; z-index: 200; 
+            }
+            .gnb .sub li a{
+                padding-left: 0;
+            }
+            .sub_back{
+                display: none;
+                position: absolute;
+                width: 100%; height: 200px;left: 0; top: 80px; background-color: #f8f8f8; z-index: 150;
+            }
+            
+        }
+        @media screen and (min-width: 1200px){
+            #wrap{
+                overflow-x: hidden;
+            }
+            .head_in{
+                width: 1200px; margin: 0 auto;
+            }
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $(".btn").click(function(){
+                $("#navWrap").addClass("nav_on");
+            });
+            $(".close").click(function(){
+                $("#navWrap").removeClass("nav_on");
+                $(".sub").hide();/**/
+            });
+            $(".gnb").mouseenter(function(){
+               if($("#navWrap").hasClass("nav_on")==false){
+                    $(".sub, .sub_back").stop().slideDown();
+               }
+            });
+            $("header").mouseleave(function(){
+                if($("#navWrap").hasClass("nav_on")==false){
+                    $(".sub, .sub_back").stop().slideUp();
+                }
+            });
+
+            $(".gnb>li>a").click(function(){
+                if($("#navWrap").hasClass("nav_on")==true){
+                    $(this).next().slideToggle();
+                }
+            });
+            $(window).resize(function(){
+                var w=$(window).width();
+                if(w>=768){
+                    $(".close").click();
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div class="head_in">
+                <h1 class="logo">반응형</h1>
+                <button class="btn mobile">
+                    <span>메뉴</span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav id="navWrap">
+                    <h2>주메뉴</h2>
+                    <div class="nav_in">
+                        <button class="close mobile">
+                            <span>닫기</span>
+                            <span></span>
+                        </button>
+                        <ul class="gnb">
+                            <li>
+                                <a href="#">1depth1</a>
+                                <ul class="sub">
+                                    <li><a href="#">2depth1</a></li>
+                                    <li><a href="#">2depth2</a></li>
+                                    <li><a href="#">2depth3</a></li>
+                                    <li><a href="#">2depth4</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">1depth2</a>
+                                <ul class="sub">
+                                    <li><a href="#">2depth1</a></li>
+                                    <li><a href="#">2depth2</a></li>
+                                    <li><a href="#">2depth3</a></li>
+                                    <li><a href="#">2depth4</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">1depth3</a>
+                                <ul class="sub">
+                                    <li><a href="#">2depth1</a></li>
+                                    <li><a href="#">2depth2</a></li>
+                                    <li><a href="#">2depth3</a></li>
+                                    <li><a href="#">2depth4</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">1depth4</a>
+                                <ul class="sub">
+                                    <li><a href="#">2depth1</a></li>
+                                    <li><a href="#">2depth2</a></li>
+                                    <li><a href="#">2depth3</a></li>
+                                    <li><a href="#">2depth4</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="sub_back"></div>
+        </header>
+        <div id="visual"></div>
+    </div>
+</body>
+</html>
