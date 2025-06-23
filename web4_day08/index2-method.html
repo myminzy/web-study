@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>method-scrollTop</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+        p{
+            font-size: 300px; position: fixed; left: 0; top: 0;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $(window).scroll(function(){
+                //console.log("scroll");
+                //$("p").text("scroll");
+                var t=$(this).scrollTop();
+                $("p").text(t);
+            });
+        });
+    </script>
+</head>
+<!-- 
+11. .scrollTop(): 화면을 스크롤할때 상단으로부터 스크롤한 거리값을 계산할수 있다.
+12. .text(): 텍스트를 추가하거나 변경할수 있다.
+ -->
+<body>
+    <p></p>
+</body>
+</html>

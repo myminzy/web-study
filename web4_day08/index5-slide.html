@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slideDown/slideUp/slideToggle</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        a{
+            text-decoration: none; color: #333;
+        }
+        ul{list-style: none;}
+        #nav{
+            width: 500px; text-align: center; 
+        }
+        #nav>ul>li{
+            float: left;
+        }
+        #nav>ul>li>a{
+            display: block;
+            width: 200px; height: 50px; line-height: 50px; background: #000; color: #fff;
+        }
+        #nav>ul>li:hover>a{
+            background: #ff0; color: #000;
+        }
+        #nav .sub{
+          display: none;
+          
+        }
+        #nav .sub a{
+            display: block; width: 200px; height: 40px; line-height: 40px; background: rgba(0,0,0,0.1);
+        }
+        #nav .sub a:hover{
+            background: #ff0; color: #000;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#nav>ul>li").hover(function(){
+                //올리면 실행문
+                //$("#nav .sub").css({"display":"block"});
+                //$("#nav .sub").show();
+               // $("#nav .sub").fadeIn(800);
+              // $("#nav .sub").stop().slideDown();
+            },function(){
+                //내리면 실행문
+                //$("#nav .sub").css({"display":"none"});
+                //$("#nav .sub").hide();
+                //$("#nav .sub").fadeOut(800);
+              //  $("#nav .sub").stop().slideUp();
+            });
+            $("#nav>ul>li").click(function(){
+                $("#nav .sub").stop().slideToggle();
+            });
+        });
+    </script>
+</head>
+<!-- 
+    16. .slideDown(): 선택한 요소를 아래쪽으로 서서히 나타난다.
+    17. .slideUp(): 선택한 요소를 위쪽으로 사라지게 한다.
+    18. .slideToggle(): 한번 클릭하면 나타나고 다시 클릭하면 사라진다.
+    19. .stop(): 사용자의 동작을 끊어주기 위해 사용하는 메서드
+ -->
+<body>
+    <div id="nav">
+        <ul>
+            <li>
+                <a href="#">1depth1</a>
+                <ul class="sub">
+                    <li><a href="#">2depth1</a></li>
+                    <li><a href="#">2depth2</a></li>
+                    <li><a href="#">2depth3</a></li>
+                    <li><a href="#">2depth4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">1depth2</a>
+                <ul class="sub">
+                    <li><a href="#">2depth1</a></li>
+                    <li><a href="#">2depth2</a></li>
+                    <li><a href="#">2depth3</a></li>
+                    <li><a href="#">2depth4</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

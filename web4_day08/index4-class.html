@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addClass/removeClass/hasClass()/toggleClass</title>
+    <style>
+        li{
+            font-size: 30px; margin-bottom: 30px;
+        }
+        div{
+            width: 200px; height: 200px; background: #ccc; margin: 30px;
+        }
+        div.on{
+            width: 300px; height: 300px; background: #f00;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("li").eq(0).click(function(){
+                $("div").addClass("on");
+               /* var a=$("div").hasClass("on");
+               console.log(a);*/
+            });
+            $("li").eq(1).click(function(){
+                $("div").removeClass("on");
+               /* var a=$("div").hasClass("on");
+                console.log(a);*/
+            });
+            $("li").eq(2).click(function(){
+                $("div").toggleClass("on");
+                var a=$("div").hasClass("on");
+                console.log(a);
+            });
+        });
+    </script>
+</head>
+<!-- 
+    1. .addClass(): 클래스를 추가
+    $("선택자").addClass("추가할 클래스명");
+    2. .removeClass():클래스를 제거
+    $("선택자").removeClass("제거할 클래스명");
+    3. .toggleClass(): 한번 클릭하면 클래스가 추가되고 다시 클릭하면 클래스가 제거된다.
+    $("선택자").toggleClass("클래스명");
+    4. .hasClass(): 선택한 요소에 클래스가 유무 확인(있으면 true, 없으면 false)
+    $("선택자").hasClass("클래스명");
+
+ -->
+<body>
+    <ul>
+        <li>클래스추가하기</li>
+        <li>클래스제거하기</li>
+        <li>클래스추가/제거</li>
+    </ul>
+    <div></div>
+</body>
+</html>

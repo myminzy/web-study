@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hide/show/fadeIn/fadeOut/fadeToggle</title>
+    <style>
+        li{
+            font-size: 30px; margin-bottom: 20px;
+            cursor: pointer;
+        }
+        div{
+            width: 400px; height: 400px; margin: 30px; font-size: 40px; color: #fff; padding: 10px;
+        }
+        .box1{
+            background: #f00;
+        }
+        .box2{
+            background: #00f;
+        }
+        .box3{
+            background: #ff0;color: #000;
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("li").eq(0).click(function(){
+                $(".box1").hide();
+            });
+            $("li").eq(1).click(function(){
+                $(".box1").show();
+            });
+            $("li").eq(2).click(function(){
+                $(".box2").fadeOut(1000);
+            });
+            $("li").eq(3).click(function(){
+                $(".box2").fadeIn(1000);
+            });
+            $("li").eq(4).click(function(){
+                $(".box3").fadeToggle(1000);
+            });
+        });
+    </script>
+</head>
+<!-- 
+    method
+    1. .css()
+    2. .addClass("클래스이름"): 클래스를 추가
+    3. .removeClass("클래스이름"): 클래스를 제거
+    4. .hide(); 숨김처리
+    5. .show(); 보이게 처리
+    6. .width(): 너비값을 알아보거나 변경할수 있다.
+    7. .height(): 높이값을 알아보거나 변경할수 있다.
+    8. .fadeOut(시간): 서서히 안보이게 처리
+    9. .fadeIn(시간): 서서히 보이게 처리
+    10. .fadeToggle(시간):한번 클릭하면 서서히 사라지고 다시 클릭하면 서서히 나타난다.
+ -->
+<body>
+    <ul>
+        <li>box1 hide</li>
+        <li>box1 show</li>
+        <li>box2 fadeOut</li>
+        <li>box2 fadeIn</li>
+        <li>box3 fadeToggle</li>
+    </ul>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+</body>
+</html>
