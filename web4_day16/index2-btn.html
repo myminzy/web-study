@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>btn</title>
+    <style>
+       *{margin: 0; padding: 0;} 
+       .ani_box{
+           width: 30px; height: 30px; margin: 100px 0 0 100px;
+       }
+       .line1{
+           width: 30px; height: 4px; background: #000;
+           border-radius: 4px; transition: all 0.3s; transform: rotate(0deg); position: relative;
+       }
+       .ani_box.active .line1{
+           transform: rotate(-45deg); top: 9px;
+       }
+       .line2{
+        width: 30px; height: 4px; background: #000;
+           border-radius: 4px; transition: all 0.3s; transform: rotate(0deg); position: relative;
+           opacity: 1; margin: 5px 0;
+       }
+       .ani_box.active .line2{
+           opacity: 0;
+       }
+       .line3{
+        width: 30px; height: 4px; background: #000;
+           border-radius: 4px; transition: all 0.3s; transform: rotate(0deg); position: relative;
+       }
+       .ani_box.active .line3{
+           transform: rotate(45deg); top: -9px;
+       }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script>
+        $(function(){
+            $(".ani_box").toggle(function(){
+                $(this).addClass("active");
+            },function(){
+                $(this).removeClass("active");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="ani_box">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</body>
+</html>
