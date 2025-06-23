@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider2</title>
+    <style>
+        *{margin: 0; padding: 0; border: 0; box-sizing: border-box;}
+        ul{list-style: none;}
+        .banner{
+            width: 1200px; height: 300px; 
+            overflow: hidden;
+            margin: 0 auto; 
+        }
+        .banner>ul{
+            width: 3600px;/**/
+        }
+        .banner>ul>li{
+            width: 1200px; height: 300px;
+            overflow: hidden; float: left;/**/
+        }
+    </style>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            setInterval(function(){
+                $(".banner>ul").delay(2500);
+                $(".banner>ul").animate({marginLeft: -1200},500);
+                $(".banner>ul").delay(2500);
+                $(".banner>ul").animate({marginLeft: -2400},500);
+                $(".banner>ul").delay(2500);
+                $(".banner>ul").animate({marginLeft: 0},500);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <ul>
+            <li><img src="images2/img1_1200.jpg" alt="1"></li>
+            <li><img src="images2/img2_1200.jpg" alt="2"></li>
+            <li><img src="images2/img3_1200.jpg" alt="3"></li>
+        </ul>
+    </div> 
+</body>
+</html>
