@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_date2</title>
+</head>
+<body>
+    <script>
+        var today = new Date()  // 오늘날짜
+        var nowYear = today.getFullYear()
+        var theDate = new Date(nowYear,11,31);
+
+        console.log(today);
+        console.log(theDate);
+
+        var Dday = theDate - today;
+
+        console.log(Dday)
+
+        // 1초 = 1000밀리세컨드
+        // 1000(밀리세컨드) * 60(초) * 60(분) * 24
+
+        var result = Math.ceil(Dday / (1000*60*60*24))
+        document.write('올해는 '+result+'일 남았습니다.')
+    </script>
+</body>
+</html>

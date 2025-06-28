@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_date</title>
+    <style>
+        div {height:100px; text-align:center;}
+    </style>
+</head>
+<body>
+    <div id="date">
+        <span>0000</span>년
+        <span>00</span>월
+        <span>00</span>일
+        <span>00</span>요일
+    </div>
+
+    <div id="time">
+        <span>00</span>시
+        <span>00</span>분
+        <span>00</span>초
+    </div>
+
+    <script>
+        // setInterval : n초에 한번씩 실행
+
+        /*
+        setInterval(function(){
+            time()
+        },1000)  // 1초 뒤에 반복 실행
+        */
+        setInterval(time,1000)
+
+        time()  // 시작하자마자 1번 실행
+
+        function time(){
+
+            var today = new Date()  // 날짜 데이터 가져오기
+            // console.log(today)
+            // var nowYear = today.getYear() + 1900  // 년
+            var nowYear = today.getFullYear()
+            var nowMonth = today.getMonth()+1  // 월  0~11
+            var nowDate = today.getDate()  // 일
+            var nowDay = today.getDay()  // 요일  0~6 (일~토)
+
+            var nowHour = today.getHours()  // 시
+            var nowMinute = today.getMinutes()  // 분
+            var nowSecond = today.getSeconds()  // 초
+
+            /*
+            if( nowDay == 0 ){
+                nowDay = '일'
+            } else if(nowDay == 1){
+                nowDay = '월'
+            }
+            */
+
+            switch(nowDay){
+                case 0: nowDay = '일'; break;
+                case 1: nowDay = '월'; break;
+                case 2: nowDay = '화'; break;
+                case 3: nowDay = '수'; break;
+                case 4: nowDay = '목'; break;
+                case 5: nowDay = '금'; break;
+                case 6: nowDay = '토'; break;
+            }
+
+            if( nowSecond < 10 ){
+                nowSecond = '0'+nowSecond
+            }
+
+            document.querySelectorAll('#date span')[0].innerText = nowYear;
+            document.querySelectorAll('#date span')[1].innerText = nowMonth;
+            document.querySelectorAll('#date span')[2].innerText = nowDate;
+            document.querySelectorAll('#date span')[3].innerText = nowDay;
+
+            var t_time = document.querySelectorAll('#time span')
+            t_time[0].innerText = nowHour;
+            t_time[1].innerText = nowMinute;
+            t_time[2].innerText = nowSecond;
+
+        }
+
+        var birth = new Date(1990,3,1)
+
+        console.log(birth)
+        var theMonth = birth.getMonth();
+        var theDate = birth.getDate();
+        var theDay = birth.getDay();
+        console.log(theMonth);
+        console.log(theDate);
+        console.log(theDay);
+
+    </script>
+</body>
+</html>

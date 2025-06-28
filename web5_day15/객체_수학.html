@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_수학</title>
+</head>
+<body>
+    <script>
+        var num = 2.1234
+
+        var maxNum = Math.max(35,77,84,25)  // 최대값 반환
+        var minNum = Math.min(35,77,84,25)  // 최소값 반환
+        var roundNum = Math.round(num);  // 반올림 값 반환
+        var floorNum = Math.floor(num);  // 소수점에서 무조건 내림
+        var ceilNum = Math.ceil(num);  // 소수점에서 무조건 올림
+        var rndNum = Math.random();  // 0~1 사이 랜덤
+        var piNum = Math.PI;  // 원주율 실수 반환
+
+        document.write(maxNum ,'<br />');
+        document.write(minNum ,'<br />');
+        document.write(roundNum ,'<br />');
+        document.write(floorNum ,'<br />');
+        document.write(ceilNum ,'<br />');
+        document.write(rndNum ,'<br />');
+        document.write(piNum ,'<br />');
+
+        document.write(Math.random()*10 ,'<br />');  // 0~10 사이 랜덤
+        document.write(Math.floor(Math.random()*10) ,'<br />');  // 0~9
+        document.write(Math.ceil(Math.random()*10) ,'<br />');  // 1~10
+        document.write(Math.floor(Math.random()*31) ,'<br />');  // 0~30
+        document.write(Math.floor(Math.random()*31)+120 ,'<br />')  // 120~150
+    
+
+
+    </script>
+</body>
+</html>
