@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터타입_연습</title>
+</head>
+<body>
+    <div>
+        <label for="uname">이름</label>
+        <input type="text" id="uname">
+
+        <hr />
+
+        <label for="age">나이</label>
+        <input type="text" id="age">
+
+        <hr />
+
+        <label for="exam1">국어</label>
+        <input type="text" id="exam1">
+
+        <hr />
+
+        <label for="exam2">수학</label>
+        <input type="text" id="exam2">
+
+        <hr />
+
+        <label for="exam3">영어</label>
+        <input type="text" id="exam3">
+
+        <hr />
+
+        <button onclick="exam()">결과 확인</button>
+    </div>
+
+    <p id="text1"></p>
+    <p id="text2"></p>
+
+    <script>
+        function exam(){
+            let exam1 = document.getElementById('exam1').value;
+            let exam2 = document.getElementById('exam2').value;
+            let exam3 = document.getElementById('exam3').value;
+
+            let exam_result = {}
+            exam_result.name = document.getElementById('uname').value;
+            exam_result.age = document.getElementById('age').value;
+            exam_result.exam1 = Number(exam1);
+            exam_result.exam2 = Number(exam2);
+            exam_result.exam3 = Number(exam3);
+            exam_result.exam_avg = (exam_result.exam1 + exam_result.exam2 + exam_result.exam3) / 3
+
+            document.getElementById('text1').innerText = exam_result.name+'('+exam_result.age+')님의 국어점수는 '+exam_result.exam1+', 수학점수는 '+exam_result.exam2+', 영어점수는 '+exam_result.exam3+'점 입니다.'
+            document.getElementById('text2').innerText = '평균점수는 '+exam_result.exam_avg+'점 입니다.'
+        }
+    </script>
+</body>
+</html>

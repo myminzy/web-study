@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>산술연산자</title>
+</head>
+<body>
+    <script>
+        // 산술연산자 : + - * / %(나머지)
+
+        // 3 + 5 * 3 = 18
+        // (3 + 5) * 3 = 24
+
+        var num1 = 15;
+        var num2 = 2;
+        var result;
+
+        result = num1 + num2;
+        document.write(result ,'<br />');
+
+        result = num1 - num2;
+        document.write(result ,'<br />');
+
+        result = num1 * num2;
+        document.write(result ,'<br />');
+
+        result = num1 / num2;
+        document.write(result ,'<br />');
+
+        result = num1 % num2;
+        document.write(result ,'<br />');
+        
+    </script>
+
+    <hr />
+
+    <label for="number1">첫번째 숫자 : </label>
+    <input type="text" id="number1">
+    <br />
+    <label for="number2">두번째 숫자 : </label>
+    <input type="text" id="number2">
+    <br />
+    <button onclick="result()">결과확인</button>
+    
+    <p id="result_text"></p>
+
+    <script>
+        function result(){
+            let num1 = Number(document.getElementById('number1').value);
+            let num2 = Number(document.getElementById('number2').value);
+
+            document.getElementById('result_text').innerHTML = num1+' + '+num2+' = '+(num1+num2)+' <br /> '+num1+' - '+num2+' = '+(num1-num2)+' <br /> '+num1+' * '+num2+' = '+(num1*num2)+' <br /> '+num1+' / '+num2+' = '+(num1/num2)+' <br /> '+num1+' % '+num2+' = '+(num1%num2) 
+        }
+    </script>
+</body>
+</html>

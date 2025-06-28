@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터타입</title>
+</head>
+<body>
+    <script>
+        // String(문자형 데이터), Number(숫자형 데이터), Boolean(논리형 데이터), Null, Undefined(비어진 데이터)
+
+        // [문자형 데이터 - String]
+        var str1 = "JavaScript";
+        var str2 = '100';
+        var str3 = '<h1>String</h1>'
+        // str3 = '<a href="#">string</a>'   "<a href='#'>string</a>"
+        var str4 = '조우정\n안녕하세요\n반갑습니다.'
+        var str5 = '제 이름은 "조우정"입니다.'
+        var str6 = "제 이름은 '조우정'입니다."
+        var str7 = '제 이름은 \'조우정\'입니다.'
+        document.write(str1 ,'<br />');
+        document.write(str2 ,'<br />');
+        document.write(str3 ,'<br />');
+        document.write(str4 ,'<br />');
+        console.log(str4);  // \n은 console창에서 줄바꿈되어 나온다.
+        document.write(str5 ,'<br />');
+        document.write(str6 ,'<br />');
+        document.write(str7 ,'<br />');
+
+        // [숫자형 데이터 - Number]
+        var num1 = 200;
+        var num2 = Number(str2);  // 문자형데이터를 숫자형데이터로 치환
+        var num3 = 100000000000000000000000000000000000
+        var num4 = 9999999999999999  // 15자리를 넘어가게 되면 숫자가 제대로 표시되지 않을 수 있다.
+        var num5 = 0.1;
+        var num6 = 0.2;
+        var num7 = 1e6;
+        var num8 = 1e-6;
+        document.write(num1 ,'<br />');
+        document.write(num1 + num2 ,'<br />');
+        document.write(num3 ,'<br />');
+        document.write(num4 ,'<br />');
+        document.write(num5 ,'<br />');
+        document.write(num6 ,'<br />');
+        document.write(num5+num6 ,'<br />')
+        document.write(num5*num6 ,'<br />')
+        // 소수점을 계산할 경우 정수로 변환한 뒤 계산하고 후에 다시 소수점을 만들어야 한다.
+        document.write( (num5*10 + num6*10) / 10 ,'<br />');
+        document.write( (num5*10) * (num6*10) / 100 ,'<br />' );
+        document.write(num7 ,'<br />');
+        document.write(num8 ,'<br />');
+
+        // [논리형 데이터 - Boolean] - true / false
+        var bool1 = true;
+        var bool2 = false;
+        var bool3 = 10 < 5;  // false
+        var bool4 = Boolean('SBS')  // 0, null, undefined를 제외한 나머지 true
+        document.write(bool1 ,'<br />');
+        document.write(bool2 ,'<br />');
+        document.write(bool3 ,'<br />');
+        document.write(bool4 ,'<br />');
+
+        if( true ){
+            document.write('true 입니다. <br />')
+        }
+        if( false ){
+            document.write('false 입니다. <br />');
+        }
+        if( bool1 ){
+            document.write('true 입니다. <br />');
+        }
+        if( !false ){
+            document.write('부정연산자 <br />')
+        }
+        if( 0 ){
+            document.write('0 <br />')
+        }
+        if(!0){
+            document.write('부정연산자 <br />');
+        }
+        // 0, null, "", NaN, undefined 는 부정연산자와 만나면 참으로 판명된다.
+
+        // [비어진 데이터] - null, undefined
+        var b;  // 값을 넣지 않을 때. 변수는 종재해서 메모리 공간은 있지만, 값이 정의되지 않음.
+        var c = null;  // 값이 없다라는 것을 명시
+        document.write(b ,'<br />')
+        document.write(c ,'<br />')
+
+        // [객체타입 - Object]
+        // key값으로 데이터를 저장할 수 있는 변수값
+        // key값은 숫자로 시작하지 않는 영어(대소문자), 숫자, 언더바, "";
+        let dog = {
+            name : '흰둥이',
+            age : 6 ,
+            color : 'white' ,
+            3 : 'test'
+        }
+        document.write(dog ,'<br />');
+        console.log(dog)
+        document.write(dog.name ,'<br />');
+        document.write(dog.age ,'<br />');
+        document.write(dog.color ,'<br />');
+        document.write(dog[3] ,'<br />');
+
+        let cat = {};
+        console.log(cat);
+        cat.name = '야옹이';
+        cat.age = 5;
+        cat[0] = 2;
+        console.log(cat);
+
+        // 문자형데이터, 숫자형데이터, 논리형데이터, 비워진데이터, 객체, 심볼
+        // 심볼은 ECMAScript6에서 추가된 데이터 형식
+        // 심볼은 유일하고 변경할 수 없는 타입으로, 충돌 위험이 없는 유일한 객체의 식별자로 사용할 수 있다.
+        var sym1 = Symbol('javascript');  // 심볼타입
+        var sym2 = Symbol('SBS');
+        var sym3 = Symbol('SBS');
+        console.log( sym2 == sym3 );
+        console.log( typeof sym2 )
+
+
+    </script>
+</body>
+</html>
