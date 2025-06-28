@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-재귀함수</title>
+</head>
+<body>
+    <script>
+        // 재귀함수 호출 : 자기 자신을 호출하는 함수. 함수 내부에서 자기 자신을 다시 호출하는 형태
+        var num = 0;
+        function fnc1(){
+            num++
+            document.write(num, '<br />')
+            if(num == 10){
+                return
+            }
+            fnc1()
+        }
+        fnc1()
+
+        //
+
+        // 5*4*3*2*1
+        function a(n){
+            if(n==1){
+                return 1
+            }
+            return n * a(n-1)
+        }
+        document.write( a(5) ,'<br />')
+
+        //
+
+        // 1~100까지 더하기 - 5050
+        // for
+        let b = 0;
+        for(let i=1; i<101; i++){
+            b += i
+        }
+        document.write(b ,'<br />')
+
+        // 재귀함수
+        function sum(n){
+            if( n <= 1 ){
+                return 1
+            }
+            return n + sum(n-1)
+        }
+        document.write( sum(100) ,'<br />') 
+
+        // 
+
+        // id/pw
+        let id = "sbs1234";
+        let pw = "1234"
+
+        function login(uid, upw){
+            if( id==uid && pw==upw){
+                document.write('로그인이 되었습니다.')
+            } else {
+                alert('다시 입력하세요.')
+                login( prompt('id입력') , prompt('pw입력') )
+            }
+
+        }
+        login( prompt('id입력') , prompt('pw입력') )
+    </script>
+</body>
+</html>

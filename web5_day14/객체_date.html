@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_date</title>
+    <style>
+        div {height:100px; text-align:center;}
+    </style>
+</head>
+<body>
+    <div id="date">
+        <span>0000</span>년
+        <span>00</span>월
+        <span>00</span>일
+        <span>00</span>요일
+    </div>
+
+    <div id="time">
+        <span>00</span>시
+        <span>00</span>분
+        <span>00</span>초
+    </div>
+
+    <script>
+        var today = new Date()  // 날짜 데이터 가져오기
+        // console.log(today)
+        // var nowYear = today.getYear() + 1900  // 년
+        var nowYear = today.getFullYear()
+        var nowMonth = today.getMonth()+1  // 월  0~11
+        var nowDate = today.getDate()  // 일
+        var nowDay = today.getDay()  // 요일  0~6 (일~토)
+
+        document.querySelectorAll('#date span')[0].innerText = nowYear;
+        document.querySelectorAll('#date span')[1].innerText = nowMonth;
+        document.querySelectorAll('#date span')[2].innerText = nowDate;
+        document.querySelectorAll('#date span')[3].innerText = nowDay;
+    </script>
+</body>
+</html>
