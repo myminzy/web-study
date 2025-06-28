@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수연습</title>
+</head>
+<body>
+    <p id="name">사용자 이름</p>
+    <script>
+        // let uname = prompt('이름을 입력하세요','홍길동')
+        // document.getElementById('name').innerText = uname+'님 안녕하세요'
+    </script>
+
+    <hr />
+
+    <input type="text" id="u_name">
+    <button type="button" onclick="printName()">확인</button>
+
+    <p><span class="user_name">이름</span>님 안녕하세요</p>
+
+    <script>
+        function printName(){
+            let u_name = document.getElementById('u_name').value;
+            document.querySelector('.user_name').innerText = u_name;
+        }
+    </script>
+
+    <hr />
+
+    <p><span class="num1">00</span> + <span class="num2">00</span> = <span class="result">00</span></p>
+    <button type="button" class="btn_num1">숫자1</button>
+    <button type="button" class="btn_num2">숫자2</button>
+    <button type="button" class="btn_result">계산</button>
+
+    <script>
+        // 숫자1을 클릭했을 때 prompt로 숫자를 입력 이라고 표시하고, 입력하고 난 뒤에 num1의 숫자가 변경되도록 설정
+        // 숫자2
+        // 계산을 클릭했을 때 숫자1과 숫자2더한 값 표시
+        document.querySelector('.btn_num1').addEventListener('click',function(){
+            num1 = prompt('숫자를 입력',0)
+            document.querySelector('.num1').innerText = num1;
+        })
+
+        document.querySelector('.btn_num2').onclick = function(){
+            num2 = prompt('숫자를 입력',0)
+            document.querySelector('.num2').innerText = num2;
+        }
+
+        document.querySelector('.btn_result').onclick = function(){
+            document.querySelector('.result').innerText = Number(num1) + Number(num2);
+        }
+    </script>
+
+    <hr />
+
+    <input type="text" id="num1">
+    +
+    <input type="text" id="num2">
+    <button id="btn_result" onclick="num_result()">계산하기</button>
+
+    <p id="result_text">결과</p>
+
+    <script>
+        function num_result(){
+            const number1 = document.getElementById('num1').value;
+            const number2 = document.getElementById('num2').value;
+
+            // document.getElementById('result_text').innerText = Number(number1) + Number(number2)
+            // 50 과 60 을 더하면 110 이 나옵니다.
+            // document.getElementById('result_text').innerText = number1+' 과 '+number2+' 을 더하면 '+(Number(number1)+Number(number2))+' 이 나옵니다.'
+            const result = Number(number1) + Number(number2);
+            document.getElementById('result_text').innerText = number1+' 과 '+number2+' 을 더하면 '+result+' 이 나옵니다.'
+        }
+    </script>
+</body>
+</html>
