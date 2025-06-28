@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열2</title>
+</head>
+<body>
+    <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">GALLERY</a></li>
+        <li><a href="#">BOARD</a></li>
+        <li><a href="#">ETC</a></li>
+    </ul>
+
+    <ul>
+        <script>
+            var title = new Array('HOME','ABOUT','GALLERY','BOARD','ETC')
+
+            for(let i=0; i<=4; i++){
+                document.write('<li><a href="#">'+title[i]+'</a></li>')
+            }
+        </script>
+    </ul>
+
+    <ul>
+        <script>
+            for(let i=1; i<=5; i++){
+                document.write('<li><a href="#">'+title[i-1]+'</a></li>')
+            }
+        </script>
+    </ul>
+
+    <ul>
+        <script>
+            for(i in title){
+                document.write('<li><a href="#">'+title[i]+'</a></li>')
+            }
+        </script>
+    </ul>
+</body>
+</html>

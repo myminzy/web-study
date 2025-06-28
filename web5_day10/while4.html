@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while4</title>
+</head>
+<body>
+    <p class="text">결과</p>
+
+    <script>
+        var id = "sbs1234"
+        var pw = 1234
+
+        var uid = prompt('아이디를 입력하세요.')
+
+        while(true){
+            if(uid == id){
+                var upw = prompt('비밀번호를 입력하세요.')
+                while(true){
+                    if(upw == pw){
+                        document.querySelector('.text').innerText = '로그인이 되었습니다.'
+                        break
+                    } else {
+                        alert('비밀번호가 틀렸습니다.')
+                        upw = prompt('비밀번호를 입력하세요.')
+                    }
+                }
+                break
+            } else {
+                alert('아이디가 틀렸습니다.')
+                uid = prompt('아이디를 입력하세요.')
+            }
+        }
+
+        // 아이디를 입력하세요 >
+        //   비밀번호를 입력하세요
+        //   > 로그인이 되었습니다.
+        //   > 비밀번호가 틀렸습니다.
+        // 아이디가 틀렸습니다.
+
+    </script>
+</body>
+</html>
