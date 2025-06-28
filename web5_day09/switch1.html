@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch1</title>
+</head>
+<body>
+    <script>
+        let animal = prompt('동물 이름을 입력하세요.')
+        // 강아지 = 멍멍 / 고양이 = 야옹 / 소 = 음매 / 일치하는 동물 소리가 없습니다.
+
+        switch( animal ){
+            case '강아지':alert('멍멍'); break
+
+            case '고양이':
+                alert('야옹');
+                break
+
+            case '소':
+                alert('음매')
+                break
+
+            default:
+                alert('일치하는 동물 소리가 없습니다.')
+        }
+
+        /*
+        if(animal === '강아지'){
+            alert('멍멍')
+        }
+        */
+    </script>
+</body>
+</html>

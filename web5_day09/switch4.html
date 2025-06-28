@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch4</title>
+    <style>
+        .box {width:300px; height:100px; background-color:gray;}
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+        let color = prompt('핑크, 스카이블루, 골드 중 색상을 적어주세요.')
+        let box = document.querySelector('.box')
+
+        switch(color){
+            case "핑크" :
+                box.style.backgroundColor="pink";
+                break;
+
+            case "스카이블루" :
+                box.style.backgroundColor="skyblue";
+                break;
+
+            case "골드" :
+                box.style.backgroundColor="gold";
+                break;
+
+            default :
+                alert('색상을 다시 입력해주세요.')
+                location.reload();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while3</title>
+</head>
+<body>
+    <p class="text">결과</p>
+
+    <script>
+        let pw = 1234;
+
+        let upw = prompt('비밀번호를 입력하세요.')
+
+        while( true ){
+            if( pw == upw ){
+                document.querySelector('.text').innerText = '로그인이 되었습니다.'
+                break
+            } else {
+                alert('비밀번호가 틀렸습니다.')
+                upw = prompt('비밀번호를 입력하세요.')
+            }
+        }
+
+    </script>
+</body>
+</html>
