@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비교연산자</title>
+</head>
+<body>
+    <script>
+        /*
+            비교연산자
+            >   : 크다, 초과
+            <   : 작다, 미만
+            >=  : 크거나 같다, 이상
+            <=  : 작거나 같다, 이하
+            ==  : 같다
+            !=  : 다르다
+
+            =   : 오른쪽에 있는 값을 왼쪽에 치환하여라
+            ==  : 같다  10 == '10' : true  데이터 형식 상관없이 결과가 같으면 true
+            === : 같다  10 === '10' : false  데이터 형식까지 같아야 true
+        */
+    </script>
+
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <button onclick="result()">결과</button>
+
+    <script>
+        function result(){
+            let num1 = document.getElementById('num1').value;
+            let num2 = document.getElementById('num2').value;
+
+            console.log(num1 > num2);
+            console.log(num1 < num2);
+            console.log(num1 >= num2);
+            console.log(num1 <= num2);
+            console.log(num1 == num2);
+            console.log(num1 != num2);
+
+            console.log(10 == '10');
+            console.log(10 === '10');
+        }
+
+        // 논리연산자
+        // &&  and조건  : 두개 이상의 조건이 모두 만족했을 때 true
+        // ||  or조건   : 두개 이상의 조건 중에서 하나만 만족해도 true
+        // 0 ~ 10  :  num >= 0 && num <= 10
+
+        var a = 5;
+        var b = 10;
+        var c = 15;
+        var d = 20;
+
+        var result2;
+
+        result2 = a > b || b >= c || c > d;
+        console.log(result2);
+
+        result2 = a > b || b >= c || c < d;
+        console.log(result2);
+
+        result2 = a > b && b >= c && c < d;
+        console.log(result2);
+
+        result2 = a < b && b <= c && c < d;
+        console.log(result2);
+
+        result2 = !(a >= b)
+        console.log(result2);
+
+    </script>
+</body>
+</html>

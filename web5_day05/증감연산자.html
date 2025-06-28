@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>증감연산자</title>
+</head>
+<body>
+    <script>
+        // 증가연산자와 감소연산자
+
+        a = 10;
+        // 클릭할때마다
+        a = a + 10;
+        a += 10;
+
+        b = 0;  // ******* 초기값을 함께 사용
+        b = b + 1;
+        b += 1;
+        b++  // 1씩 증가
+
+        c = 0;
+        c = c - 1;
+        c -= 1;
+        c--  // 1씩 감소
+
+        // num++ num-- ++num --num -num +num
+    </script>
+
+    <button onclick="num1()">++num</button>
+    <button onclick="num2()">--num</button>
+    <button onclick="num3()">num++</button>
+    <button onclick="num4()">num--</button>
+    <button onclick="num5()">+num</button>
+    <button onclick="num6()">-num</button>
+
+    <p id="result">10</p>
+
+    <script>
+        const result = document.getElementById('result')
+
+        function num1(){
+            // 전위 증가 연산자
+            let num = result.textContent;
+            // ++num
+            num = 2 * ++num
+            result.innerText = num
+        }
+
+        function num2(){
+            // 전위 감소 연산자
+            let num = result.textContent;
+            // --num
+            num = 2 * --num
+            result.innerText = num
+        }
+
+        function num3(){
+            // 후위 증가 연산자
+            let num = result.textContent;
+            // num++
+            num = 2 * num++
+            result.innerText = num
+        }
+
+        function num4(){
+            // 후위 감소 연산자
+            let num = result.textContent;
+            num--
+            result.innerText = num
+        }
+
+        function num5(){
+            // 단항플러스
+            let num = result.textContent;
+            num = +num
+            result.innerText = num
+        }
+
+        function num6(){
+            // 단항부정
+            let num = result.textContent;
+            num = -num
+            result.innerText = num
+        }
+    </script>
+</body>
+</html>
