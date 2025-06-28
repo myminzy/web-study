@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-즉시실행함수</title>
+</head>
+<body>
+    <script>
+        // 일반적인 함수
+        function a(){
+            document.write('a <br />')
+        }
+        a();
+
+        // 즉시 실행 함수
+        // 즉시 실행되는 함수 표현식. 호출되는 즉시 실행이 이루어지며, 실행이 끝나면 함수가 사라진다.
+        // function을 전체 괄호로 감싸거나, ! + 등과 같은 연사낮를 사용하여 입력한다.
+
+        // 기명 즉시 실행 함수
+        (function b(x){
+            document.write(x ,'<br />')
+        })(2);
+
+        (function c(x){
+            document.write(x ,'<br />')
+        }(3));
+
+        // 익명 즉시 실행 함수
+        (function(x){
+            document.write(x ,'<br />')
+        })(4);
+
+        (function(x){
+            document.write(x ,'<br />')
+        }(5));
+
+        !function(x){
+            document.write(x ,'<br />')
+        }(6);
+
+        // 변수에 즉시 실행 함수 저장 가능 - 재호출이 가능
+        (b = function(x){
+            document.write(x ,'<br />')
+        })(7);
+        b(8);
+
+        // 리턴값도 저장이 가능
+        var c = (function(x){
+            return x+1
+        })(9);
+        document.write(c ,'<br />')
+    </script>
+</body>
+</html>

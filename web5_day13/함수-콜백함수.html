@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-콜백함수</title>
+</head>
+<body>
+    <script>
+        // 다른함수의 매개변수로 함수를 전달하고, 어떤 이벤트가 발쌩한 후에 매개변수로 전달한 함수가 다시 호출되는 것
+
+        function add(a,b,callback){
+            callback(a+b)
+        }
+        function result(c){
+            document.write(c ,'<br />')
+        }
+        add(10,20,result)
+        add(100,200,result);
+
+        // 
+
+        function calc(a,b,callback){
+            var v = a*b
+            callback(v)
+        }
+        calc(2,4,function(num){
+            document.write(num ,'<br />')
+        })
+
+        // 
+
+        function calc2(callback,a,b){
+            return callback(a,b)
+        }
+        var result = calc2(function(num1,num2){
+            return num1+num2
+        },10,20)
+        document.write(result ,'<br />')
+
+        // 
+
+        function uname(name,callback){
+            document.write('name : '+name ,'<br />')
+            callback()
+        }
+        function finish(){
+            document.write('bye bye <br />')
+        }
+        uname('jwj',finish)
+
+        // 
+
+        function result_num(num1, num2, sum, sub){
+            sum(num1,num2)
+            sub(num1,num2)
+        }
+        function result_sum(n1,n2){
+            document.write(n1+n2 ,'<br />')
+        }
+        function result_sub(n1,n2){
+            document.write(n1-n2 ,'<br />')
+        }
+        result_num(300,200,result_sum,result_sub)
+    </script>
+</body>
+</html>
