@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-매개변수</title>
+</head>
+<body>
+    <script>
+        function hello(name){
+            document.write(name+'님 안녕하세요 <br />')
+        }
+        hello('조우정');
+        hello('홍길동');
+        hello('유재석');
+        hello();
+
+        function hello2(name){
+            let msg = '안녕하세요';
+            if( name ){
+                msg = name +'님 안녕하세요'
+            }
+            document.write(msg ,'<br />')
+        }
+
+        hello2('조우정');
+        hello2();
+
+
+        function hello3(name='방문자'){
+            document.write(name+'님 안녕하세요 <br />')
+        }
+        hello3('조우정')
+        hello3()
+
+
+        function info(name, address){
+            document.write('안녕하세요. '+name+' 입니다. <br />')
+            document.write('주소는 '+address+' 입니다. <br />')
+        }
+        info('조우정','서울')
+        info('홍길동','인천')
+
+
+    </script>
+</body>
+</html>
