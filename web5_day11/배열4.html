@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열4</title>
+    <style>
+        * {margin:0; padding:0;}
+        ul,ol,li {list-style:none;}
+
+        .gallery {
+            width:580px;  /* (125 + 20) * 4 */
+            margin:0 auto;
+            overflow:hidden;
+        }
+        .gallery li {
+            float:left;
+            margin:10px;
+        }
+        .indi {
+            margin:10px 0;
+            text-align:center;
+        }
+        .indi li {
+            display:inline-block;
+            margin:0 10px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="gallery">
+        <script>
+            for(let i=1; i<=8; i++){
+                document.write('<li><img src="img/mov'+i+'.jpg"></li>')
+            }
+        </script>
+    </ul>
+
+    <ul class="indi">
+        <!-- <script>
+            var movieTitle = new Array('장르만 로맨스','베놈2','프렌치 디스패치','엔칸토','사바나','이터널스','듄','보이스')
+
+            // var mov_li = document.querySelector('.gallery').childElementCount-1
+            var mov_li = movieTitle.length  // 배열의 개수
+            console.log(mov_li)
+
+            for(let i=0; i<mov_li; i++){
+                document.write('<li>'+(i+1)+'. '+movieTitle[i]+'</li>')
+            }
+        </script> -->
+    </ul>
+
+    <script>
+        var movieTitle = new Array('장르만 로맨스','베놈2','프렌치 디스패치','엔칸토','사바나','이터널스','듄','보이스')
+
+        var mov_list = movieTitle.length  // 배열의 개수
+
+        var mov_li = ''
+        for(let i=0; i<mov_list; i++){
+            mov_li += '<li>'+(i+1)+'. '+movieTitle[i]+'</li>'
+            document.querySelector('.indi').innerHTML = mov_li
+        }
+    </script>
+</body>
+</html>
