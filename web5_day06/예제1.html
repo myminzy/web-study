@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin:0; padding:0;}
+        h1 {font-size:24px; margin:20px;}
+        .wrap1 {margin:20px; border:1px solid #aaa; width:500px; padding:40px; background-color:#f1f1f1;}
+        .wrap1 .item {margin-bottom:10px;}
+        .wrap1 input {width:200px; height:32px; border:1px solid #ddd;}
+        .wrap1 button {width:100px; height:32px; background-color:#333; color:#fff; cursor:pointer; border:none;}
+
+        .wrap2 {width:300px; margin:20px; border:1px solid #aaa; padding:40px;}
+        .wrap2 p {line-height:40px; color:#333; border-bottom:1px solid #ddd;}
+        .wrap2 p:last-child {border:none; margin-top:50px; background-color:#333; color:#fff; padding-left:20px;}
+    </style>
+</head>
+<body>
+    <h1>SBS마트</h1>
+    <div class="wrap1">
+        <div class="item">
+            <input type="text" id="product1"> <input type="number" id="num1"> 개
+        </div>
+        <div class="item">
+            <input type="text" id="product2"> <input type="number" id="num2"> 개
+        </div>
+        <div class="item">
+            <input type="text" id="product3"> <input type="number" id="num3"> 개
+        </div>
+        <div class="item">
+            <input type="text" id="product4"> <input type="number" id="num4"> 개
+        </div>
+        <button onclick="result()">결과</button>
+    </div>
+
+    <div class="wrap2">
+        <p><span class="pro1">상품</span> * <span class="n1">0</span>개 = <span class="result1">0</span>원</p>
+        <p><span class="pro2">상품</span> * <span class="n2">0</span>개 = <span class="result2">0</span>원</p>
+        <p><span class="pro3">상품</span> * <span class="n3">0</span>개 = <span class="result3">0</span>원</p>
+        <p><span class="pro4">상품</span> * <span class="n4">0</span>개 = <span class="result4">0</span>원</p>
+
+        <p>총합 <span class="sum">0</span>원</p>
+
+        <script>
+            function result(){
+                var product1 = document.getElementById('product1').value;
+                var product2 = document.getElementById('product2').value;
+                var product3 = document.getElementById('product3').value;
+                var product4 = document.getElementById('product4').value;
+                var num1 = document.getElementById('num1').value;
+                var num2 = document.getElementById('num2').value;
+                var num3 = document.getElementById('num3').value;
+                var num4 = document.getElementById('num4').value;
+
+                document.querySelector('.pro1').innerText = product1;
+                document.querySelector('.pro2').innerText = product2;
+                document.querySelector('.pro3').innerText = product3;
+                document.querySelector('.pro4').innerText = product4;
+                document.querySelector('.n1').innerText = num1;
+                document.querySelector('.n2').innerText = num2;
+                document.querySelector('.n3').innerText = num3;
+                document.querySelector('.n4').innerText = num4;
+                document.querySelector('.result1').innerText = num1 * 500;
+                document.querySelector('.result2').innerText = num2 * 800;
+                document.querySelector('.result3').innerText = num3 * 5000;
+                document.querySelector('.result4').innerText = num4 * 4000;
+
+                document.querySelector('.sum').innerText = (num1*500) + (num2*800) + (num3*5000) + (num4*4000)
+            }
+        </script>
+    </div>
+</body>
+</html>

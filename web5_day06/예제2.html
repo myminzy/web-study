@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제2</title>
+    <style>
+        * {margin:0; padding:0;}
+        h1 {font-size:24px; margin:20px;}
+        button {border:none; cursor:pointer;}
+
+        .wrap1, .wrap2 {margin:20px; border:1px solid #aaa; width:300px; padding:40px; background-color:#f1f1f1;}
+        .wrap1 .item {margin-bottom:10px;}
+        .wrap1 input {width:200px; height:32px; border:1px solid #ddd;}
+        .wrap1 button {width:30px; height:32px; background-color:#333; color:#fff;}
+        .wrap1 > button {width:100px;}
+    </style>
+</head>
+<body>
+    <h1>SBS마트</h1>
+    <div class="wrap1">
+        <div class="item">
+            <label for="product">상품명</label> : <input type="text" id="product">
+        </div>
+        <div class="item">
+            개수 :
+            <button onclick="minus()">-</button>
+            <span id="num1">0</span>
+            <button onclick="plus()">+</button>
+        </div>
+        <div class="item">
+            <label for="num2">가격</label> : <input type="number" id="num2">
+        </div>
+        <button onclick="result()">결과</button>
+    </div>
+    <div class="wrap2">
+        <p><span class="pro1">상품</span> * <span class="n1">0</span>개 = <span class="result1">0</span>원</p>
+    </div>
+
+    <script>
+        // 결과를 클릭했을 때
+        function result(){
+            let product = document.getElementById('product').value;
+            let num1 = document.getElementById('num1').textContent;
+            let num2 = document.getElementById('num2').value;
+
+            document.querySelector('.pro1').innerText = product;
+            document.querySelector('.n1').innerText = num1;
+            document.querySelector('.result1').innerText = num1 * num2;
+        }
+
+        var num1 = 0
+        function plus(){
+            num1++  // num+=1  // num=num+1
+            document.getElementById('num1').innerText = num1
+        }
+
+        function minus(){
+            num1--  // num-=1  // num=num-1
+            document.getElementById('num1').innerText = num1
+        }
+
+    </script>
+</body>
+</html>
