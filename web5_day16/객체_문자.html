@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_문자</title>
+</head>
+<body>
+    <script>
+        var name = 'Hello My name is Jo Woo Jung';
+
+        document.write(name ,'<br />');
+        document.write(name.charAt(10) ,'<br />');
+        document.write(name.indexOf('name') ,'<br />');
+        document.write(name.indexOf('J') ,'<br />');
+        document.write(name.indexOf('J',20) ,'<br />');
+        document.write(name.indexOf('S') ,'<br />');  // 만약 데이터가 없으면 -1이라고 표시
+        document.write(name.lastIndexOf('J') ,'<br />');
+        document.write(name.lastIndexOf('J',20) ,'<br />');
+        document.write(name.match('Jo') ,'<br />');  // 데이터가 없으면 null 반환
+        document.write(name.replace('Hello','Hi') ,'<br />');
+        document.write(name ,'<br />');
+
+        // name = name.replace('Hello','Hi');
+        // document.write(name ,'<br />');
+
+        document.write(name.search('J') ,'<br />');
+        document.write(name.slice(3,8) ,'<br />');  // 3~8자리 문자까지 표시
+        document.write(name.slice(3,-1) ,'<br />');
+        document.write(name.substring(3,8) ,'<br />');
+        document.write(name.substring(3,-1) ,'<br />');
+        document.write(name.substr(3,8) ,'<br />');  // 문자 개수
+        var text = name.split(' ');
+        document.write(text ,'<br />');
+        console.log(text);
+        document.write(text[0] ,'<br />');
+        document.write(text[4] ,'<br />');
+        document.write(name.toLowerCase() ,'<br />');  // 소문자로 표시
+        document.write(name.toUpperCase() ,'<br />');  // 대문자로 표시
+        document.write(name.length ,'<br />');
+
+        var str = 'Hello ';
+        document.write(str.concat('javascript') ,'<br />');
+        document.write(str.trim().concat('javascript') ,'<br />');  // 앞뒤 공백을 제거
+        document.write(str.concat('javascript') ,'<br />');
+
+        document.write(str.charCodeAt(0) ,'<br />');  // 아스키코드 H
+        document.write(String.fromCharCode(72) ,'<br />');
+
+
+    </script>
+</body>
+</html>

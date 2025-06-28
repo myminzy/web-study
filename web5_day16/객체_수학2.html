@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_수학2</title>
+</head>
+<body>
+    <script>
+        // 빨간컵, 파란컵, 노란컵 중 정답은?
+        // > 정답입니다!
+        // > 땡! 다음기회에
+        // >>> 잘못 입력하셨습니다.
+
+        var game = prompt('빨간컵, 파란컵, 노란컵 중 정답은?')
+        var gameNum;
+
+        switch(game){
+            case "빨간컵":gameNum=1; break;
+            case "파란컵":gameNum=2; break;
+            case "노란컵":gameNum=3; break;
+            default:alert('잘못 입력하셨습니다.')
+                location.reload();
+        }
+
+        var com = Math.ceil(Math.random()*3)
+
+        if( gameNum >= 1 && gameNum <= 3 ){
+            if(gameNum == com){
+                alert('정답입니다!')
+            } else {
+                alert('땡! 다음기회에')
+            }
+        }
+    </script>
+</body>
+</html>

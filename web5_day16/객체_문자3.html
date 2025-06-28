@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_문자3</title>
+</head>
+<body>
+    <script>
+        var member = [
+            {name:'홍길동' , addr:'서울시 서초구'},
+            {name:'조우정' , addr:'경기도 남양주시 다산동'},
+            {name:'유재석' , addr:'수원시 팔당구'},
+            {name:'하하' , addr:'남양주시 금곡동'}
+        ]
+
+        // document.write(member[2].addr)
+
+        for(var i=0; i<member.length; i++){
+            var mem = member[i];
+            var uname = mem.name;
+            var uaddr = mem.addr;
+
+            if( uaddr.indexOf('남양주') > -1 ){  // 인덱스를 반환했을 때 그 숫자가 -1보다 크면 문자가 존재한다는 뜻
+                document.write(uname ,'<br />');
+            }
+        }
+    </script>
+</body>
+</html>

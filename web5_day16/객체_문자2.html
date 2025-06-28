@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_문자2</title>
+</head>
+<body>
+    <script>
+        // 이름을 prompt로 받아서 화면에 대문자료 표시되도록 설정
+        var userName = prompt('영문 이름을 입력하세요.')
+        var upperName = userName.toUpperCase();
+        document.write(upperName ,'<br />');
+
+        // 전화번호를 prompt로 받아서 뒤 4글자를 ****로 표시되도록 설정
+        var userTel = prompt('전봐번호를 입력하세요.');
+        result = userTel.substring(0,userTel.length-4)+'****';
+        document.write(result ,'<br />');
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_bom</title>
+</head>
+<body>
+    <button onclick="play()">play</button>
+    <button onclick="stop()">stop</button>
+    <p class="text">1</p>
+
+    <script>
+        // bom : Browser Object Model - 브라우저 객체 모델
+        // setInterval / clearInterval
+        // 일정한 시간마다 한번씩 실행시키는 명령어
+
+        var n = 1
+        function play(){
+            num = setInterval(function(){
+                n++
+                document.querySelector('.text').innerText = n
+            },1000)
+        }
+        function stop(){
+            clearInterval(num)
+        }
+
+        // setTimeout() / clearTimeOut()  : n초 뒤에 한번만 실행
+        var i=0;
+        // setInterval('console.log(++i)',2000)
+        setTimeout('console.log(++i)',2000)
+    </script>
+</body>
+</html>
