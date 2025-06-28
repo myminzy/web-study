@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_dom5</title>
+    <style>
+        * {margin:0; padding:0;}
+        table {border-collapse:collapse;}
+        h1 {text-align:center; margin:30px 0;}
+
+        table {
+            margin:0 auto;
+            border-top:2px solid #333;
+        }
+        table th, table td {
+            padding:10px;
+            text-align:center;
+            border-bottom:1px solid #ddd;
+        }
+        table th {
+            background-color:#333;
+            color:#fff;
+        }
+        #total {border:none;}
+        .blind {
+            position:absolute;
+            left:-9999px;
+        }
+    </style>
+
+    <script>
+        // 각각의 input을 체크하여 만약 체크가 되어있다면 해당하는 value값을 가지고 와서 더해라
+        function add(){
+            var total = 0
+            for(i=1; i<=3; i++){
+                var chk = document.getElementById('opt'+i)
+                if( chk.checked ){
+                    total += Number(chk.value)
+                }
+            }
+            document.getElementById('total').value = total
+        }
+    </script>
+</head>
+<body>
+    <h1>메뉴</h1>
+    <table id="menu" width="700">
+        <caption class="blind">분식메뉴</caption>
+
+        <colgroup>
+            <col width="50%">
+            <col width="25%">
+            <col width="*">
+        </colgroup>
+
+        <thead>
+            <tr>
+                <th scope="col">메뉴</th>
+                <th scope="col">가격</th>
+                <th scope="col">선택</th>
+            </tr>
+        </thead>
+
+        <tfoot>
+            <tr>
+                <th scope="row">총액</th>
+                <td colspan="2">
+                    <input type="text" name="total" id="total" value="0" title="총액입니다.">
+                </td>
+            </tr>
+        </tfoot>
+
+        <tbody>
+            <tr>
+                <td><label for="opt1">라면</label></td>
+                <td>4,000원</td>
+                <td><input type="checkbox" name="opt1" id="opt1" value="4000" onclick="add()"></td>
+            </tr>
+
+            <tr>
+                <td><label for="opt2">김밥</label></td>
+                <td>3,000원</td>
+                <td><input type="checkbox" name="opt2" id="opt2" value="3000" onclick="add()"></td>
+            </tr>
+
+            <tr>
+                <td><label for="opt3">떡볶이</label></td>
+                <td>6,000원</td>
+                <td><input type="checkbox" name="opt3" id="opt3" value="6000" onclick="add()"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

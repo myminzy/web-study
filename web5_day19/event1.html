@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event1</title>
+    <style>
+        .box {width:200px; height:200px; margin:20px; background-color:#ddd;}
+    </style>
+</head>
+<body>
+    <button onclick="alert('event')">직접이벤트</button>
+
+    <hr />
+
+    <button id="color1">onclick</button>
+    <button id="color2">onmouseover</button>
+    <button id="color3">onmouseout</button>
+    <button id="color4">onmousemove</button>
+    <button id="color5">ondblclick</button>
+    <button id="color6">onkeypress</button>
+    <button id="color7">onkeydown</button>
+    <button id="color8">onkeyup</button>
+    <button id="color9">onfocus</button>
+    <button id="color10">onblur</button>
+
+    <div class="box"></div>
+
+    <script>
+        var box = document.querySelector('.box')
+
+        // 클릭했을 때
+        document.getElementById('color1').onclick = function(){
+            box.style.backgroundColor = "pink";
+        }
+
+        // 마우스를 올렸을 때
+        document.getElementById('color2').onmouseover = function(){
+            box.style.backgroundColor = 'skyblue';
+        }
+
+        // 마우스가 빠져나갔을 때
+        document.getElementById('color3').onmouseout = function(){
+            box.style.backgroundColor = 'gold';
+        }
+
+        // mouseover, mouseenter : 마우스를 올렸을 때
+        // mouseout, mouseleave : 마우스가 빠져나갔을 때
+
+        // 마우스가 움직였을 때
+        document.getElementById('color4').onmousemove = function(){
+            box.style.backgroundColor = 'red'
+        }
+
+        // 더블클릭 했을 때
+        document.getElementById('color5').ondblclick = function(){
+            box.style.backgroundColor = 'blue'
+        }
+
+        // 키가 눌렸을 때
+        document.getElementById('color6').onkeypress = function(){
+            box.style.backgroundColor = 'green'
+        }
+
+        // 키가 눌러지는 순간
+        document.getElementById('color7').onkeydown = function(){
+            box.style.backgroundColor = 'gray'
+        }
+
+        // 키가눌려졌다가 올라오는 순간
+        document.getElementById('color8').onkeyup = function(){
+            box.style.backgroundColor = 'deeppink'
+        }
+
+        // 커서가 이동되었을 때
+        document.getElementById('color9').onfocus = function(){
+            box.style.backgroundColor = '#000';
+        }
+
+        // 커서가 빠져나갔을 때
+        document.getElementById('color10').onblur = function(){
+            box.style.backgroundColor = '#333';
+        }
+    </script>
+
+    <hr />
+
+    <button id="btn">버튼</button>
+
+    <script>
+        var btn = document.getElementById('btn')
+
+        /*
+        btn.onclick = function(){
+            alert('test1')
+        }
+        btn.onclick = function(){
+            alert('test2')
+        }
+        */
+        // 이벤트가 중복되는 경우 두번째 함수만 실행이 된다.
+
+        /*
+        btn.addEventListener('click',function(){
+            alert('test1')
+        })
+        btn.addEventListener('click',function(){
+            alert('test2')
+        })
+        */
+
+        function fnc1(){
+            alert('test1')
+        }
+        function fnc2(){
+            alert('test2')
+        }
+
+        if( window.addEventListener ){
+            btn.addEventListener('click',fnc1)
+            btn.addEventListener('click',fnc2)
+        } else {
+            btn.attachEvent('onclick',fnc1)
+            btn.attachEvent('onclick',fnc2)
+        }
+    </script>
+</body>
+</html>
