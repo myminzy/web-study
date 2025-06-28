@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_dom3</title>
+</head>
+<body>
+    <img src="img/mov1.jpg" alt="" class="mov_img">
+
+    <br />
+
+    <button class="prev">이전</button>
+    <button class="next">다음</button>
+
+    <script>
+        // 1. next를 클릭했을 때 다음 이미지가 나오도록 설정
+        // 2. 클릭할 때마다 다음 이미지가 나오도록 설정
+        // 3. 5번 이미지까지 나오고 6이 되면 처음으로 이동
+        // 4. prev
+        
+        let mov_img = document.querySelector('.mov_img')
+        var n=1
+        document.querySelector('.next').onclick = function(){
+            n++
+            if( n==6 ){  // n>5
+                n=1
+            }
+            mov_img.src = 'img/mov'+n+'.jpg';
+        }
+
+        document.querySelector('.prev').onclick = function(){
+            n--
+            if(n==0){  n<1
+                n=5
+            }
+            mov_img.src = 'img/mov'+n+'.jpg';
+        }
+    </script>
+</body>
+</html>

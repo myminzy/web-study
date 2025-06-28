@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_dom4</title>
+</head>
+<body>
+    <form action="#" name="login">
+        <fieldset>
+            <legend>value / onsubmit</legend>
+
+            <p>
+                <label for="uid">아이디</label>
+                <input type="text" id="uid" name="user_id" value="ID">
+            </p>
+
+            <p>
+                <label for="upw">패스워드</label>
+                <input type="password" id="upw" name="user_pw">
+            </p>
+
+            <button type="submit">login</button>
+
+        </fieldset>
+    </form>
+
+    <script>
+        document.login.onsubmit = function(){
+            var id_v = document.login.user_id.value;  // 클릭한 시점의 value
+            var pw_v = document.login.user_pw.value;
+            var id_check = document.login.user_id.defaultValue;  // 처음 입력되어있는 값의 value
+
+            console.log(id_v)
+            console.log(pw_v)
+            console.log(id_check)
+        }
+    </script>
+
+    <hr />
+
+    <form action="#" name="check_test">
+        <input type="checkbox" name="chk_test" checked>
+        <label>동의하시겠습니까?</label>
+    </form>
+
+    <script>
+        if( document.check_test.chk_test.checked ){
+            // alert('동의하였습니다.')
+        }
+    </script>
+
+    <hr />
+
+    <form action="#" name="sub">
+        <p>
+            <input type="checkbox" name="chk_ok">
+            <label>약관에 동의합니다.</label>
+        </p>
+
+        <p>
+            <input type="checkbox" name="chk_all">
+            <label>전체과목</label>
+
+            <br />
+
+            <input type="checkbox" name="chk_sub1">
+            <label>과목1</label>
+
+            <br />
+
+            <input type="checkbox" name="chk_sub2">
+            <label>과목2</label>
+
+            <br />
+
+            <input type="checkbox" name="chk_sub3">
+            <label>과목3</label>
+        </p>
+
+        <button type="submit">등록완료</button>
+
+        <script>
+            document.sub.chk_all.onclick = function(){
+                if( this.checked ){
+                    document.sub.chk_sub1.checked = true;
+                    document.sub.chk_sub2.checked = true;
+                    document.sub.chk_sub3.checked = true;
+                } else {
+                    document.sub.chk_sub1.checked = false;
+                    document.sub.chk_sub2.checked = false;
+                    document.sub.chk_sub3.checked = false;
+                }
+            }
+
+            document.sub.onsubmit = function(){
+                let ok_chk = document.sub.chk_ok
+                if( ok_chk.checked == false ){
+                    alert('동의하셔야 합니다.')
+                    ok_chk.focus()
+                }
+            }
+        </script>
+    </form>
+</body>
+</html>
