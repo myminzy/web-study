@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for반복문2</title>
+</head>
+<body>
+    <ul>
+        <li><span>1</span> - 오리엔데이션</li>
+        <li><span>4</span> - 실습</li>
+        <li><span>9</span> - 쪽지시험</li>
+        <li><span>18</span> - 조별활동</li>
+        <li><span>23</span> - 시험</li>
+    </ul>
+
+    <script>
+        // 1. 첫번째 span의 숫자가 한자리 숫자라면 앞에 0을 붙여서 표시하여라
+        // var day = document.querySelector('li:nth-child(1) span').textContent;
+        
+        // querySelectorAll : 구조 상관없이 해당 태그의 순서값을 사용할 때 설정
+        /*
+        var li_span = document.querySelectorAll('span')
+        var day = li_span[0].textContent;
+        // console.log(day);
+        if( day < 10 ){
+            li_span[0].innerText = '0'+day;
+        }
+        */
+
+        var li_day = document.querySelector('ul').childElementCount;  // 5
+        var li_span = document.querySelectorAll('span')
+        for(let i=0; i<li_day; i++){
+            var day = li_span[i].textContent;
+            if( day < 10 ){
+                li_span[i].innerText = '0'+day
+            }
+        }
+
+    </script>
+</body>
+</html>
