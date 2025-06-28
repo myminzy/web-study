@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_dom</title>
+</head>
+<body>
+    <!-- Dom (Document Object Model : 문서 객체 모델) -->
+    <div class="wrap">
+        <div>dom연습</div>
+        <div id="box">
+            <h1>과일</h1>
+            <ul>
+                <li>딸기</li>
+                <li id="apple">사과</li>
+                <li>수박</li>
+                <li>배</li>
+            </ul>
+        </div>
+
+        <div id="box2">
+            <h1>과일</h1>
+            <ul id="list">
+                <li class="blue">딸기</li>
+                <li class="blue">사과</li>
+                <li>수박</li>
+                <li>배</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 직접선택자
+        document.getElementById('apple').style.color="red";
+        // apple.style.color="pink";  // id는 전역변수로 사용 가능
+        document.querySelectorAll('li')[2].style.color="blue";
+        document.querySelector('li').style.color="skyblue";
+
+        var fruit = document.querySelectorAll('#box2 li')  // 배열로 인식
+        for(let i=0; i<fruit.length; i++){  // let i of fruit
+            // console.log(fruit[i])
+            fruit[i].style.color="skyblue";
+        }
+
+        // getElementsBy***
+        document.getElementsByTagName('h1')[0].style.color="red";
+        document.getElementsByClassName('blue')[0].style.color="blue";
+        // document.getElementsByName('uname')[0].style.color="gray"  // form 태그
+
+        // 인접관계선택자
+        // 노드(node) : 계층적 단위의 정보를 저장
+        // 공백 문자 인식 때문에 인접관계선택자가 실행되지 않을 수 있다.
+        document.getElementById('apple').parentNode.style.backgroundColor = '#ddd';
+        document.getElementById('box2').childNodes[1].style.color="pink";
+        // document.getElementById('list').firstChild.style.color="skyblue";
+        // document.getElementById('box2').previousSibling.style.color="red";
+        // document.getElementById('box').nextSibling.style.backgroundColor="#ddd";
+
+        var box = document.getElementById('box')
+        var next = box.nextSibling
+        while( next.nodeType != 1 ){
+            next = next.nextSibling  // 만약 next가 공백문자라면 그 다음에 있는 데이터를 선택하여라
+        }
+        next.style.backgroundColor = '#ddd';
+    </script>
+</body>
+</html>

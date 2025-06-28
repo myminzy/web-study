@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_bom2</title>
+</head>
+<body>
+    <script>
+        // screen : 디스플레이 (모니터 해상도)
+        document.write('screen width : '+screen.width ,'<br />');
+        document.write('screen height : '+screen.height ,'<br />');
+        document.write('작업표시줄 제외 width : '+screen.availWidth ,'<br />');
+        document.write('작업표시줄 제외 height : '+screen.availHeight ,'<br />');
+
+        // window : 브라우저
+        document.write('브라우저 width : '+window.innerWidth ,'<br />');
+        document.write('브라우저 height : '+window.innerHeight ,'<br />');
+        document.write('툴바, 스크롤바 포함 브라우저 width : '+window.outerWidth ,'<br />');
+        document.write('툴바, 스크롤바 포함 브라우저 height : '+window.outerHeight ,'<br />');
+
+        document.write('<hr />');
+
+        // location
+        document.write('href : '+location.href ,'<br />');
+        document.write('hash : '+location.hash ,'<br />');
+        document.write('hostname : '+location.hostname ,'<br />');  // 도메인
+        document.write('host : '+location.host ,'<br />');  // 포트번호까지
+        document.write('port : '+location.port ,'<br />');  // 포트번호만
+        document.write('protocol : '+location.protocol ,'<br />');  // http:
+        // location.reload()  // 새로고침
+
+        document.write('<hr />')
+
+        // navigator
+        document.write(navigator.appCodeName ,'<br />');  // 브라우저 코드명
+        document.write(navigator.appName ,'<br />');  // 브라우저 이름
+        document.write(navigator.appVersion ,'<br />');  // 브라우저 버전
+        document.write(navigator.language ,'<br />');  // 브라우저 언어
+        document.write(navigator.product ,'<br />');  // 브라우저 엔진명
+        document.write(navigator.platform ,'<br />');  // 브라우저 운영체제
+        document.write(navigator.userAgent ,'<br />');  // 브라우저의 정보들이 한번에 표시
+    </script>
+</body>
+</html>

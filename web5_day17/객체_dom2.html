@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체_dom2</title>
+</head>
+<body>
+    <!-- 속성 : src, alt, href, title, target ... -->
+    <img src="img/mov1.jpg" alt="장르맨 로맨스" class="img">
+    <br />
+    <button class="onclick">onclick</button>
+    <button class="onmouseover">onmouseover</button>
+    <button class="onmouseout">onmouseout</button>
+
+    <script>
+        // 속성 가져오기
+        var img_src = document.querySelector('img').src;
+        console.log(img_src);
+        var img_src2 = document.querySelector('img').getAttribute('src');
+        console.log(img_src2);
+
+        // 속성 변경하기
+        document.querySelector('img').src = 'img/mov2.jpg';
+        document.querySelector('img').setAttribute('src','img/mov3.jpg');
+
+        // evet 예제
+        var mov_img = document.querySelector('img')
+
+        document.querySelector('.onclick').onclick = function(){
+            mov_img.src = 'img/mov4.jpg'
+        }
+
+        document.querySelector('.onmouseover').onmouseover = function(){
+            mov_img.src = 'img/mov5.jpg'
+        }
+
+        document.querySelector('.onmouseout').onmouseout = function(){
+            mov_img.src = 'img/mov6.jpg'
+        }
+
+
+
+
+    </script>
+</body>
+</html>
